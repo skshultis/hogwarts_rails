@@ -10,28 +10,3 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 20131030184440) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "houses", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "img_url",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "img_url",    null: false
-    t.integer  "house_id",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "students", ["house_id"], name: "index_students_on_house_id", using: :btree
-
-  add_foreign_key "students", "houses", name: "fk_students_houses"
-end
