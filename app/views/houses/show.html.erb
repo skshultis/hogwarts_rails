@@ -1,7 +1,16 @@
-<h1><%= @house.name %></h1>
+<p>
+  <strong>Name:</strong>
+  <%= @house.name %>
+</p>
+
+<img src="<%= @house.image_url %>">
+
+<p><%= link_to 'back', houses_path %></p>
+
 <% @house.students.each do |student| %>
   <div class="student">
     <h2><%= student.name %></h2>
-    <%= image_tag student.img_url %>
+
+    <img src="<%= student.img_url %>">
   </div>
 <% end %>
